@@ -25,6 +25,7 @@ a {
     text-decoration: none;
     outline: none;
     color: #262626;
+    cursor: pointer;
 }
 
 a:hover {
@@ -33,7 +34,7 @@ a:hover {
 }
 
 .container {
-    padding: 80px 20px;
+    padding: 50px 20px;
 }
 
 /* Nav */
@@ -70,15 +71,21 @@ a:hover {
     border-radius: 50px;
 }
 
+.nav-main .nav-main-right .mobile-search-button {
+    opacity: 0;
+    z-index: -1;
+}
+
 .nav-main .search-form {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 550px;
 }
 
 .nav-main .search-form input#search {
     padding: 5px 10px;
-    width: 500px;
+    width: 100%;
     border: 1px solid #dddddde7;
     font-size: 16px;
 }
@@ -101,12 +108,7 @@ main {
     margin-right: 20px;
     width: 65%;
     float: left;
-}
-
-main .account-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+    padding-top: 30px;
 }
 
 .video-main {
@@ -157,6 +159,9 @@ main .account-img {
 
 .subscribe .account-img {
     margin-right: 20px;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
 }
 
 .subscribe .video-user {
@@ -196,7 +201,10 @@ main .account-img {
 /* Comments */
 .comments {
     padding: 20px 0;
+    float: left;
+    width: 65%;
 }
+
 .comments .nav-comments {
     display: flex;
     align-items: center;
@@ -219,10 +227,15 @@ main .account-img {
 .comments .comment-box {
     padding: 20px 0;
     display: flex;
+    flex-shrink: 0;
+    flex: 0 0 auto;
 }
 
 .comments .comment-box .account-img {
     margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
 }
 
 .comments .comment-box.add-comment .add-comment-form {
@@ -264,13 +277,15 @@ main .account-img {
 .sidebar {
     padding-right: 20px;
     float: right;
-    width: 33%;
+    width: 32%;
+    margin-top: 30px;
 }
 
 .sidebar .sidebar-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
 }
 
 .sidebar .sidebar-nav .up-next {
@@ -375,4 +390,34 @@ main .account-img {
 .sidebar .sidebar-video .sidebar-video-views li:not(:last-child) {
     margin-right: 5px;
 }
-  
+
+@media (max-width: 1024px) {
+    main, .sidebar, .comments {
+        float: none;
+        display: block;
+        width: 100%;
+    }
+
+    .nav-main .search-form {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-main .search-form {
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0 5%;
+        width: 500px;
+        display: none;
+    } 
+    
+    .nav-main .nav-main-right .mobile-search-button {
+        opacity: 1;
+    }
+
+    .video-main .nav-video .nav-video-right li:not(:last-child):not(:first-child) {
+        margin-right: 5px;
+    }
+}
